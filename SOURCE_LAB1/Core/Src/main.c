@@ -64,92 +64,7 @@ static void MX_GPIO_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	void display7SEG1(int counter) {
-	    // Tắt tất cả các segment
-	    HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_1_Pin | SEG_2_Pin | SEG_3_Pin | SEG_4_Pin | SEG_5_Pin | SEG_6_Pin, SET);
 
-	    // Bật các segment tương ứng với giá trị của counter
-	    switch (counter) {
-	        case 0:
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_1_Pin | SEG_2_Pin | SEG_3_Pin | SEG_4_Pin | SEG_5_Pin, RESET);
-	            break;
-	        case 1:
-	            HAL_GPIO_WritePin(GPIOA, SEG_1_Pin | SEG_2_Pin, RESET);
-	            break;
-	        case 2:
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_1_Pin | SEG_3_Pin | SEG_4_Pin | SEG_6_Pin, RESET);
-	            break;
-	        case 3:
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_1_Pin | SEG_2_Pin | SEG_3_Pin | SEG_6_Pin, RESET);
-	            break;
-	        case 4:
-	            HAL_GPIO_WritePin(GPIOA, SEG_1_Pin | SEG_2_Pin | SEG_5_Pin | SEG_6_Pin, RESET);
-	            break;
-	        case 5:
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_2_Pin | SEG_3_Pin | SEG_5_Pin | SEG_6_Pin, RESET);
-	            break;
-	        case 6:
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_2_Pin | SEG_3_Pin | SEG_4_Pin | SEG_5_Pin | SEG_6_Pin, RESET);
-	            break;
-	        case 7:
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_1_Pin | SEG_2_Pin, RESET);
-	            break;
-	        case 8:
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_1_Pin | SEG_2_Pin | SEG_3_Pin | SEG_4_Pin | SEG_5_Pin | SEG_6_Pin, RESET);
-	            break;
-	        case 9:
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_1_Pin | SEG_2_Pin | SEG_3_Pin | SEG_5_Pin | SEG_6_Pin, RESET);
-	            break;
-	        default:
-	            // Nếu counter không hợp lệ, tắt hết các segment
-	            HAL_GPIO_WritePin(GPIOA, SEG_0_Pin | SEG_1_Pin | SEG_2_Pin | SEG_3_Pin | SEG_4_Pin | SEG_5_Pin | SEG_6_Pin, SET);
-	            break;
-	    }
-	}
-
-
-	void display7SEG2(int counter) {
-		    // Tắt tất cả các segment
-		    HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_1_Pin | SEG1_2_Pin | SEG1_3_Pin | SEG1_4_Pin | SEG1_5_Pin | SEG1_6_Pin, SET);
-
-		    // Bật các segment tương ứng với giá trị của counter
-		    switch (counter) {
-		        case 0:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_1_Pin | SEG1_2_Pin | SEG1_3_Pin | SEG1_4_Pin | SEG1_5_Pin, RESET);
-		            break;
-		        case 1:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_1_Pin | SEG1_2_Pin, RESET);
-		            break;
-		        case 2:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_1_Pin | SEG1_3_Pin | SEG1_4_Pin | SEG1_6_Pin, RESET);
-		            break;
-		        case 3:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_1_Pin | SEG1_2_Pin | SEG1_3_Pin | SEG1_6_Pin, RESET);
-		            break;
-		        case 4:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_1_Pin | SEG1_2_Pin | SEG1_5_Pin | SEG1_6_Pin, RESET);
-		            break;
-		        case 5:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_2_Pin | SEG1_3_Pin | SEG1_5_Pin | SEG1_6_Pin, RESET);
-		            break;
-		        case 6:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_2_Pin | SEG1_3_Pin | SEG1_4_Pin | SEG1_5_Pin | SEG1_6_Pin, RESET);
-		            break;
-		        case 7:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_1_Pin | SEG1_2_Pin, RESET);
-		            break;
-		        case 8:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_1_Pin | SEG1_2_Pin | SEG1_3_Pin | SEG1_4_Pin | SEG1_5_Pin | SEG1_6_Pin, RESET);
-		            break;
-		        case 9:
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_1_Pin | SEG1_2_Pin | SEG1_3_Pin | SEG1_5_Pin | SEG1_6_Pin, RESET);
-		            break;
-		        default:
-		            // Nếu counter không hợp lệ, tắt hết các segment
-		            HAL_GPIO_WritePin(GPIOA, SEG1_0_Pin | SEG1_1_Pin | SEG1_2_Pin | SEG1_3_Pin | SEG1_4_Pin | SEG1_5_Pin | SEG1_6_Pin, SET);
-		            break;
-		    }
-		}
 
   /* USER CODE END 1 */
 
@@ -174,48 +89,20 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
+ void ex6(){
 
+	 for ( int i = 0; i <=11 ; i++){
+		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , SET);
+		 HAL_Delay(1000);
+	 }
+ }
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	  for (int i = 9; i >= 0; i --) {
-	  			  if (i >= 5) {
-	  				  HAL_GPIO_WritePin(GPIOB, LED_1_Pin | LED_7_Pin, SET);
-	  	  			  HAL_GPIO_WritePin(GPIOB, LED_12_Pin | LED_6_Pin, RESET);
-	  				  display7SEG1(i - 5); //(4-0)
-	  			  }
-	  			  else if (i >= 2) {
-	  				  HAL_GPIO_WritePin(GPIOB, LED_11_Pin | LED_5_Pin, SET);
-	  	  			  HAL_GPIO_WritePin(GPIOB, LED_1_Pin | LED_7_Pin, RESET);
-	  				  display7SEG1(i - 2); //(2-0)
-	  			  }
-	  			  else{
-	  				  HAL_GPIO_WritePin(GPIOB, LED_12_Pin | LED_6_Pin, SET);
-	  	  	          HAL_GPIO_WritePin(GPIOB, LED_11_Pin | LED_5_Pin, RESET);
-	  				  display7SEG1(i); //(2-0)
-
-	  			  }
-	  			  if (i >= 7) {
-	  				  HAL_GPIO_WritePin(GPIOB, LED_8_Pin | LED_2_Pin, SET);
-	  	  			  HAL_GPIO_WritePin(GPIOB, LED_10_Pin | LED_4_Pin, RESET);
-	  				  display7SEG2(i - 7); //(2-0)
-	  			  }
-	  			  else if (i >= 5) {
-	  				  HAL_GPIO_WritePin(GPIOB, LED_3_Pin | LED_9_Pin, SET);
-	  	  			  HAL_GPIO_WritePin(GPIOB, LED_2_Pin | LED_8_Pin, RESET);
-	  				  display7SEG2(i - 5); //(2-0)
-	  			  }
-	  			  else {
-	  				  HAL_GPIO_WritePin(GPIOB, LED_4_Pin | LED_10_Pin, SET);
-	  	  			  HAL_GPIO_WritePin(GPIOB, LED_3_Pin | LED_9_Pin, RESET);
-	  				  display7SEG2(i);
-	  			  }
-	  			  HAL_Delay(1000);
-	  	  }}
-  // Todo
-
+	 ex6();
+	  	  }
     /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */
 }
