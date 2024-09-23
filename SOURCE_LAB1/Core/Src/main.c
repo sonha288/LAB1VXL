@@ -89,39 +89,149 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
- void ex6(){
-
-	 for ( int i = 0; i <=11 ; i++){
-		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , SET);
-	 }
- }
-// void clearAllClock(){
+// void ex6(){
+//
 //	 for ( int i = 0; i <=11 ; i++){
-//	 	 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , RESET);
+//		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , SET);
 //	 }
 // }
-  int num = 0;
-  void clearNumberOnClock(int num){
-	  for (num = 0 ; num <= 11; num++)
-	  {
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << num , RESET);
-		  HAL_Delay(1000);
-//		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << num , RESET);
-//		  HAL_Delay(1000);
-
-	  }
-  }
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+ void clearAllClock(){
+	 	 for ( int i = 0; i <=11 ; i++)
+	 	 {
+	 	 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , RESET);
+	 	 }
+ 	 }
+ void clearNumberonClock(int num) {
+	 	 switch(num)
+	 	 {
+	 	 	case 0:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, RESET);
+	 				break;
+	 		case 1:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET);
+	 				break;
+	 		case 2:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET);
+	 				break;
+	 		case 3:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET);
+	 				break;
+	 		case 4:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET);
+	 				break;
+	 		case 5:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, RESET);
+	 				break;
+	 		case 6:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, RESET);
+	 				break;
+	 		case 7:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, RESET);
+	 				break;
+	 		case 8:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, RESET);
+	 				break;
+	 		case 9:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, RESET);
+	 				break;
+	 		case 10:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, RESET);
+	 				break;
+	 		case 11:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, RESET);
+	 				break;
+	 		 }
+ 	 }
+ void setNumberonClock(int num) {
+	 	 switch(num)
+	 	 {
+	 	 	case 0:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_11, SET);
+	 				break;
+	 		case 1:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, SET);
+	 				break;
+	 		case 2:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, SET);
+	 				break;
+	 		case 3:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, SET);
+	 				break;
+	 		case 4:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, SET);
+	 				break;
+	 		case 5:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, SET);
+	 				break;
+	 		case 6:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, SET);
+	 				break;
+	 		case 7:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, SET);
+	 				break;
+	 		case 8:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, SET);
+	 				break;
+	 		case 9:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, SET);
+	 				break;
+	 		case 10:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, SET);
+	 				break;
+	 		case 11:
+	 				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, SET);
+	 				break;
+	 		 }
+ 	 }
+  clearAllClock();
+  int hours = 0, minutes = 0, seconds = 0;
   while (1)
   {
-    /* USER CODE END WHILE */
-	 ex6();
-	 HAL_Delay(1000);
-	 clearNumberOnClock(num);
+	  seconds++;
+
+	      // Xóa số hiển thị của giây trước đó
+	      if (seconds % 5 == 0)
+	          clearNumberonClock((seconds - 5) / 5);
+
+	      if (seconds >= 60)
+	      {
+	          // Xóa số hiển thị của phút trước đó
+	          clearNumberonClock(minutes / 5);
+	          minutes++;
+	          seconds = 0;
+	      }
+
+	      // Cập nhật số hiển thị của giây hiện tại
+	      if (seconds % 5 == 0)
+	          setNumberonClock(seconds / 5);
+
+	      if (minutes >= 60)
+	      {
+	          // Xóa số hiển thị của giờ trước đó
+	          clearNumberonClock(hours);
+	          hours++;
+	          minutes = 0;
+	      }
+
+	      // Cập nhật số hiển thị của phút hiện tại
+	      if (minutes % 5 == 0)
+	          setNumberonClock(minutes / 5);
+
+	      if (hours >= 12)
+	      {
+	          hours = minutes = seconds = 0;
+	          clearAllClock();
+	          setNumberonClock(0);
+	      }
+
+	      // Cập nhật số hiển thị của giờ hiện tại
+	      setNumberonClock(hours);
+
+	      // Trễ 1 giây
+	      HAL_Delay(1000);
+   }
     /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */
-}
 }
 
 /**
