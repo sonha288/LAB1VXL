@@ -93,7 +93,11 @@ int main(void)
 
 	 for ( int i = 0; i <=11 ; i++){
 		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , SET);
-		 HAL_Delay(1000);
+	 }
+ }
+ void clearAllClock(){
+	 for ( int i = 0; i <=11 ; i++){
+	 	 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , RESET);
 	 }
  }
   /* Infinite loop */
@@ -102,6 +106,9 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	 ex6();
+	 HAL_Delay(1000);
+	 clearAllClock();
+	 HAL_Delay(1000);
 	  	  }
     /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */
