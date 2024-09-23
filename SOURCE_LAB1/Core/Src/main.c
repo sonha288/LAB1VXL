@@ -227,7 +227,6 @@ int main(void)
 	      // Cập nhật số hiển thị của giờ hiện tại
 	      setNumberonClock(hours);
 
-	      // Trễ 1 giây
 	      HAL_Delay(1000);
    }
     /* USER CODE BEGIN 3 */
