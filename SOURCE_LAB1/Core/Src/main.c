@@ -89,29 +89,37 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
- void ex6(){
+// void ex6(){
+//
+//	 for ( int i = 0; i <=11 ; i++){
+//		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , SET);
+//	 }
+// }
+// void clearAllClock(){
+//	 for ( int i = 0; i <=11 ; i++){
+//	 	 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , RESET);
+//	 }
+// }
+  int num = 0;
+  void setNumberOnClock(int num){
+	  for (num = 0 ; num <= 11; num++)
+	  {
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << num , SET);
+		  HAL_Delay(1000);
+//		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << num , RESET);
+//		  HAL_Delay(1000);
 
-	 for ( int i = 0; i <=11 ; i++){
-		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , SET);
-	 }
- }
- void clearAllClock(){
-	 for ( int i = 0; i <=11 ; i++){
-	 	 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 << i , RESET);
-	 }
- }
+	  }
+  }
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	 ex6();
-	 HAL_Delay(1000);
-	 clearAllClock();
-	 HAL_Delay(1000);
-	  	  }
+	 setNumberOnClock(num);
     /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */
+}
 }
 
 /**
